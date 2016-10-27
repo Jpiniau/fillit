@@ -6,7 +6,7 @@
 #    By: jpiniau <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/09 15:51:57 by jpiniau           #+#    #+#              #
-#    Updated: 2016/10/27 16:48:27 by jpiniau          ###   ########.fr        #
+#    Updated: 2016/10/27 16:54:55 by mdeken           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = fillit
@@ -17,9 +17,7 @@ SRC_PATH = ./src/
 
 SRC_NAME =	main.c\
 			get_tetri.c\
-			test_tetri.c\
-			paste_hash.c\
-			count_hash.c
+			test_tetri.c
 
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
 
