@@ -6,8 +6,11 @@
 /*   By: jpiniau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 12:49:07 by jpiniau           #+#    #+#             */
-/*   Updated: 2016/10/27 15:49:55 by jpiniau          ###   ########.fr       */
+/*   Updated: 2016/10/27 16:41:55 by jpiniau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+char	**get_tetri(char *file);
 void	test_tetri(char **tetri);
+int		paste_hash(char **tetri);
+int		count_hash(char **tetri);

@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cmptetri.c                                         :+:      :+:    :+:   */
+/*   paste_hash.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpiniau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/27 15:33:06 by jpiniau           #+#    #+#             */
-/*   Updated: 2016/10/27 16:46:39 by jpiniau          ###   ########.fr       */
+/*   Created: 2016/10/27 16:47:59 by jpiniau           #+#    #+#             */
+/*   Updated: 2016/10/27 16:48:00 by jpiniau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tetri.h" 
-#include "libft.h" 
-
-int		valid_tetri(char **tetri)
+int		paste_hash(char **tetri)
 {
-	if (count_hash(tetri))
-		return (1);
-	if (paste_hash(tetri))
-		return (1);
+	int x;
+	int y;
+
+	y = -1;
+	while (++y <= 4)
+	{
+		x = -1;
+		while (++x <= 4)
+		{
+			if (tetri[y][x] == '#')
+				if (tetri[y - 1][x] != '#' && tetri[y + 1][x] != '#' &&
+						tetri[y][x - 1] != '#' && tetri[y][x + 1] != '#')
+					return (1);
+		}
+	}
 	return (0);
-}
-
-void	test_tetri(char	**tetri)
-{
-	int	ret;
-
-	ret = valid_tetri(tetri);
-	if (ret)
-		ft_putstr("error");
-	else
-		ft_putstr("ok");
 }

@@ -6,17 +6,20 @@
 #    By: jpiniau <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/09 15:51:57 by jpiniau           #+#    #+#              #
-#    Updated: 2016/10/27 15:50:02 by jpiniau          ###   ########.fr        #
+#    Updated: 2016/10/27 16:48:27 by jpiniau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-NAME = test
+NAME = fillit
 
 FLAGS = -Wall -Werror -Wextra
 
 SRC_PATH = ./src/
 
-SRC_NAME =	tetri_test.c\
-			test_tetri.c
+SRC_NAME =	main.c\
+			get_tetri.c\
+			test_tetri.c\
+			paste_hash.c\
+			count_hash.c
 
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
 
