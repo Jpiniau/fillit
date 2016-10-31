@@ -6,7 +6,7 @@
 /*   By: jpiniau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 16:35:31 by jpiniau           #+#    #+#             */
-/*   Updated: 2016/10/31 18:23:48 by mdeken           ###   ########.fr       */
+/*   Updated: 2016/10/31 18:50:14 by mdeken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char		**get_tetri(int fd)
 	tmp = NULL;
 	tmp = (char **)malloc(sizeof(char *) * 4);
 	ft_bzero(tmp, sizeof(char *) * 4);
-	while (read(fd, line, 5) && index < 4)
+	while (index < 4 && read(fd, line, 5))
 	{
 		if (line[4] != '\n')
 		{

@@ -6,7 +6,7 @@
 /*   By: mdeken <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/31 14:02:52 by mdeken            #+#    #+#             */
-/*   Updated: 2016/10/31 17:06:46 by mdeken           ###   ########.fr       */
+/*   Updated: 2016/10/31 18:50:58 by mdeken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ t_list	*get_all_tetri(char *path)
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
 	{
-		ft_putendl("error");
+		ft_putendl("error1");
 		exit(-1);
 	}
 	ok = 1;
@@ -67,7 +67,7 @@ t_list	*get_all_tetri(char *path)
 	if (ok == -1)
 	{
 		ft_lstdel(&all_tetri, del_lst);
-		ft_putendl("error");
+		ft_putendl("error2");
 		exit(-1);
 	}
 	return (all_tetri);
