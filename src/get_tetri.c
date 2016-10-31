@@ -6,7 +6,7 @@
 /*   By: jpiniau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 16:35:31 by jpiniau           #+#    #+#             */
-/*   Updated: 2016/10/31 15:51:19 by mdeken           ###   ########.fr       */
+/*   Updated: 2016/10/31 18:23:48 by mdeken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,18 @@
 #include <sys/uio.h>
 #include <unistd.h>
 
-char	**get_tetri(int fd)
+static void	free_tmp(int index, char **tmp)
+{
+	while (--index >= 0)
+	{
+		free(tmp[index]);
+		tmp[index] = NULL;
+	}
+	free(tmp);
+	tmp = NULL;
+}
+
+char		**get_tetri(int fd)
 {
 	int		index;
 	char	line[5];
@@ -27,17 +38,20 @@ char	**get_tetri(int fd)
 	tmp = NULL;
 	tmp = (char **)malloc(sizeof(char *) * 4);
 	ft_bzero(tmp, sizeof(char *) * 4);
-	while (read(fd, line, 5))
+	while (read(fd, line, 5) && index < 4)
 	{
 		if (line[4] != '\n')
 		{
-			while (--index >= 0)
-				free(tmp[index]);
-			free(tmp);
+			free_tmp(index, tmp);
 			return (NULL);
 		}
 		tmp[index] = ft_strndup(line, 4);
 		index++;
+	}
+	if (index != 4)
+	{
+		free_tmp(index, tmp);
+		return (NULL);
 	}
 	return (tmp);
 }
