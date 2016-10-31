@@ -6,7 +6,7 @@
 /*   By: jpiniau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 16:35:31 by jpiniau           #+#    #+#             */
-/*   Updated: 2016/10/31 14:37:49 by jpiniau          ###   ########.fr       */
+/*   Updated: 2016/10/31 15:51:19 by mdeken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,14 @@
 #include <sys/uio.h>
 #include <unistd.h>
 
-char	**get_tetri(char *file)
+char	**get_tetri(int fd)
 {
-	int		fd;
 	int		index;
 	char	line[5];
 	char	**tmp;
 
 	index = 0;
 	tmp = NULL;
-	fd = open(file, O_RDONLY);
 	tmp = (char **)malloc(sizeof(char *) * 4);
 	ft_bzero(tmp, sizeof(char *) * 4);
 	while (read(fd, line, 5))

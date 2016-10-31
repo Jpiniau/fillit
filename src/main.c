@@ -6,7 +6,7 @@
 /*   By: jpiniau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 12:09:10 by jpiniau           #+#    #+#             */
-/*   Updated: 2016/10/31 15:37:01 by jpiniau          ###   ########.fr       */
+/*   Updated: 2016/10/31 16:01:35 by mdeken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,12 @@ void	print_onetetri(char **tetri)
 
 int		main(int ac, char **av)
 {
-	char	**test;
 	int		i;
 
 	(void)ac;
 	i = -1;
 	ft_putstr("TEST\n");
-	test = get_tetri(av[1]);
-	if (test == NULL)
-		ft_putendl("ERRRORRR");
-	else
-	{
-		print_onetetri(test);
-		test_tetri(&test);
-	}
+	get_all_tetri(av[1]);
+	while (1);
 	return (0);
 }

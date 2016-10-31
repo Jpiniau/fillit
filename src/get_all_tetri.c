@@ -6,9 +6,14 @@
 /*   By: mdeken <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/31 14:02:52 by mdeken            #+#    #+#             */
-/*   Updated: 2016/10/31 15:32:58 by mdeken           ###   ########.fr       */
+/*   Updated: 2016/10/31 16:03:11 by mdeken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "tetri.h"
+#include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 static t_list	*create_tetri(int fd)
 {
@@ -17,7 +22,7 @@ static t_list	*create_tetri(int fd)
 
 	new_tetri = NULL;
 	tetri = get_tetri(fd);
-	if (tetri != NULL)
+	if (tetri != NULL && test_tetri(&tetri) == 1)
 		new_tetri = ft_lstnew(tetri, sizeof(char **) * 4);
 	return (new_tetri);
 }
@@ -53,7 +58,7 @@ t_list	*get_all_tetri(char *path)
 	{
 		new_tetri = create_tetri(fd);
 		ok = read(fd, line, 1);
-		if (ok == 1 && line[0] != '\n' || new_tetri == NULL)
+		if ((ok == 1 && line[0] != '\n') || new_tetri == NULL)
 			ok = -1;
 		if (ok != -1)
 			ft_lstaddback(&all_tetri, new_tetri);
@@ -64,4 +69,5 @@ t_list	*get_all_tetri(char *path)
 		ft_putendl("error");
 		exit(-1);
 	}
+	return (all_tetri);
 }
