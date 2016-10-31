@@ -6,12 +6,12 @@
 /*   By: jpiniau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 15:33:06 by jpiniau           #+#    #+#             */
-/*   Updated: 2016/10/31 14:50:00 by jpiniau          ###   ########.fr       */
+/*   Updated: 2016/10/31 15:40:57 by jpiniau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tetri.h" 
-#include "libft.h" 
+#include "tetri.h"
+#include "libft.h"
 
 int		paste_hash(char **tetri)
 {
@@ -28,13 +28,13 @@ int		paste_hash(char **tetri)
 			{
 				if (y == 0)
 				{
-					if (tetri[y + 1][x] != '#' && tetri[y][x - 1] != '#' && 
+					if (tetri[y + 1][x] != '#' && tetri[y][x - 1] != '#' &&
 							tetri[y][x + 1] != '#')
 						return (1);
 				}
 				else if (y == 3)
 				{
-					if (tetri[y - 1][x] != '#' && tetri[y][x - 1] != '#' && 
+					if (tetri[y - 1][x] != '#' && tetri[y][x - 1] != '#' &&
 							tetri[y][x + 1] != '#')
 						return (1);
 				}
@@ -50,8 +50,8 @@ int		paste_hash(char **tetri)
 							tetri[y][x - 1] != '#')
 						return (1);
 				}
-				else 
-					if (tetri[y - 1][x] != '#' && tetri[y + 1][x] != '#' &&	
+				else
+					if (tetri[y - 1][x] != '#' && tetri[y + 1][x] != '#' &&
 							tetri[y][x - 1] != '#' && tetri[y][x + 1] != '#')
 						return (1);
 			}
@@ -79,9 +79,8 @@ int		count_hash(char **tetri)
 				hash++;
 			else if (tetri[y][x] == '.')
 				point++;
-			else 
+			else
 				return (1);
-
 		}
 	}
 	if (hash == 4 && point == 12)
@@ -99,16 +98,17 @@ int		valid_tetri(char **tetri)
 	return (0);
 }
 
-int	test_tetri(char	**tetri)
+int		test_tetri(char ***tetri)
 {
 	int	ret;
 
-	ret = valid_tetri(tetri);
+	ret = valid_tetri(*tetri);
 	if (ret)
 	{
 		ft_putstr("error");
+		free_tetri(*tetri);
 		return (0);
-	}	
+	}
 	else
 	{
 		ft_putstr("ok");
