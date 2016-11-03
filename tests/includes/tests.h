@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_tetri.c                                       :+:      :+:    :+:   */
+/*   test.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpiniau <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mdeken <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/31 15:27:22 by jpiniau           #+#    #+#             */
-/*   Updated: 2016/11/03 15:13:02 by mdeken           ###   ########.fr       */
+/*   Created: 2016/10/31 17:03:49 by mdeken            #+#    #+#             */
+/*   Updated: 2016/11/03 13:19:50 by mdeken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#ifndef TEST_H
+# define TEST_H
 
-void	free_tetri(char **tetri)
-{
-	int	i;
+char	*test_get_tetri();
+char	*test_get_all_tetri();
 
-	i = -1;
-	while (++i < 4)
-		free(tetri[i]);
-	free(tetri);
-}
+#endif

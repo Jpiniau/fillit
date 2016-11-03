@@ -6,7 +6,7 @@
 /*   By: mdeken <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/31 14:02:52 by mdeken            #+#    #+#             */
-/*   Updated: 2016/11/03 11:41:26 by jpiniau          ###   ########.fr       */
+/*   Updated: 2016/11/03 15:28:33 by mdeken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ t_list	*get_all_tetri(char *path)
 	{
 		new_tetri = create_tetri(fd);
 		ok = read(fd, line, 1);
+		while (1);
 		if ((ok == 1 && line[0] != '\n') || new_tetri == NULL)
 			ok = -1;
 		if (ok != -1)
