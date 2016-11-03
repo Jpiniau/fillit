@@ -6,7 +6,7 @@
 /*   By: mdeken <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/31 14:02:52 by mdeken            #+#    #+#             */
-/*   Updated: 2016/11/03 11:41:26 by jpiniau          ###   ########.fr       */
+/*   Updated: 2016/11/03 18:29:25 by jpiniau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ static void	del_lst(void *content, size_t size)
 	size = 0;
 }
 
-
 t_list	*get_all_tetri(char *path)
 {
 	int		fd;
@@ -46,8 +45,8 @@ t_list	*get_all_tetri(char *path)
 	t_list	*new_tetri;
 	int		ok;
 
-
 	all_tetri = NULL;
+	new_tetri = NULL;
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
 	{

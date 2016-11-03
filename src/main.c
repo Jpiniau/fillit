@@ -6,7 +6,7 @@
 /*   By: jpiniau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 12:09:10 by jpiniau           #+#    #+#             */
-/*   Updated: 2016/11/03 13:41:31 by mdeken           ###   ########.fr       */
+/*   Updated: 2016/11/03 15:07:10 by jpiniau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int		main(int ac, char **av)
 	t_list	*tetri;
 
 	(void)ac;
+	(void)av;
 	i = -1;
 	ft_putstr("TEST\n");
 	tetri = get_all_tetri(av[1]);
