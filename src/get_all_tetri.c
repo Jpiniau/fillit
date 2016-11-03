@@ -6,7 +6,7 @@
 /*   By: mdeken <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/31 14:02:52 by mdeken            #+#    #+#             */
-/*   Updated: 2016/10/31 18:50:58 by mdeken           ###   ########.fr       */
+/*   Updated: 2016/11/03 11:41:26 by jpiniau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static t_list	*create_tetri(int fd)
 
 	new_tetri = NULL;
 	tetri = get_tetri(fd);
+	//print_tetri(tetri);
 	if (tetri != NULL && test_tetri(&tetri) == 1)
 		new_tetri = ft_lstnew(tetri, sizeof(char **) * 4);
 	return (new_tetri);

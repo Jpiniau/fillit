@@ -6,11 +6,12 @@
 /*   By: jpiniau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 16:35:31 by jpiniau           #+#    #+#             */
-/*   Updated: 2016/10/31 18:50:14 by mdeken           ###   ########.fr       */
+/*   Updated: 2016/11/03 11:42:23 by jpiniau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "tetri.h"
 #include <stdlib.h>
 #include <fcntl.h>
 #include <sys/types.h>
@@ -53,5 +54,5 @@ char		**get_tetri(int fd)
 		free_tmp(index, tmp);
 		return (NULL);
 	}
-	return (tmp);
+	return (go_topleft(tmp));
 }
