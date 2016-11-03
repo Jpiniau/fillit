@@ -6,7 +6,7 @@
 /*   By: jpiniau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 16:35:31 by jpiniau           #+#    #+#             */
-/*   Updated: 2016/11/03 11:42:23 by jpiniau          ###   ########.fr       */
+/*   Updated: 2016/11/03 13:18:32 by mdeken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,5 @@ char		**get_tetri(int fd)
 		free_tmp(index, tmp);
 		return (NULL);
 	}
-	return (go_topleft(tmp));
+	return (tmp);
 }

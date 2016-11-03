@@ -6,7 +6,7 @@
 /*   By: jpiniau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 12:09:10 by jpiniau           #+#    #+#             */
-/*   Updated: 2016/10/31 18:37:13 by mdeken           ###   ########.fr       */
+/*   Updated: 2016/11/03 13:41:31 by mdeken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,16 @@ void	lst_print(t_list *elem)
 	ft_putchar('\n');
 }
 
+void	free_lst(void *content, size_t i)
+{
+	char	**tetri;
+
+	(void)i;
+	tetri = (char **)content;
+	free_tetri(tetri);
+	tetri = NULL;
+}
+
 int		main(int ac, char **av)
 {
 	int		i;
@@ -50,5 +60,7 @@ int		main(int ac, char **av)
 	ft_putstr("TEST\n");
 	tetri = get_all_tetri(av[1]);
 	ft_lstiter(tetri, lst_print);
+	ft_lstdel(&tetri, free_lst);
+	while(1);
 	return (0);
 }
