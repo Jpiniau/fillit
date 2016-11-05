@@ -6,7 +6,7 @@
 /*   By: mdeken <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/31 14:02:52 by mdeken            #+#    #+#             */
-/*   Updated: 2016/11/03 15:28:33 by mdeken           ###   ########.fr       */
+/*   Updated: 2016/11/05 12:59:31 by mdeken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,12 @@ static t_list	*create_tetri(int fd)
 
 	new_tetri = NULL;
 	tetri = get_tetri(fd);
-	//print_tetri(tetri);
 	if (tetri != NULL && test_tetri(&tetri) == 1)
-		new_tetri = ft_lstnew(tetri, sizeof(char **) * 4);
+	{
+		new_tetri = ft_lstnew(NULL, 0);
+		new_tetri->content = tetri;
+		new_tetri->content_size = sizeof(char *) * 4;
+	}
 	return (new_tetri);
 }
 
@@ -37,11 +40,10 @@ static void	del_lst(void *content, size_t size)
 	size = 0;
 }
 
-
 t_list	*get_all_tetri(char *path)
 {
 	int		fd;
-	char	line[1];
+	char	line;
 	t_list	*all_tetri;
 	t_list	*new_tetri;
 	int		ok;
@@ -58,9 +60,8 @@ t_list	*get_all_tetri(char *path)
 	while (ok > 0)
 	{
 		new_tetri = create_tetri(fd);
-		ok = read(fd, line, 1);
-		while (1);
-		if ((ok == 1 && line[0] != '\n') || new_tetri == NULL)
+		ok = read(fd, &line, sizeof(char) * 1);
+		if ((ok == 1 && line != '\n') || new_tetri == NULL)
 			ok = -1;
 		if (ok != -1)
 			ft_lstaddback(&all_tetri, new_tetri);
