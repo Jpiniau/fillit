@@ -6,7 +6,7 @@
 /*   By: jpiniau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 12:09:10 by jpiniau           #+#    #+#             */
-/*   Updated: 2016/11/05 15:46:05 by jpiniau          ###   ########.fr       */
+/*   Updated: 2016/11/05 17:28:08 by jpiniau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,17 @@ void	free_lst(void *content, size_t i)
 int		main(int ac, char **av)
 {
 	t_list	*tetri;
+	t_tetri	*struc_tetri;
 
 	(void)ac;
 	(void)av;
 	ft_putstr("TEST\n");
 	tetri = get_all_tetri(av[1]);
 	ft_lstiter(tetri, lst_print);
+	ft_putstr("lst to t_tetri*");
+	struc_tetri = lst_to_tetri(tetri);
 	ft_putstr("Retrun\n");
-	put_rep(tetri);
+	//get_solution(tetri);
 	ft_lstdel(&tetri, free_lst_tetri);
 	while(1);
 	return (0);

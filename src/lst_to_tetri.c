@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tetri.h                                            :+:      :+:    :+:   */
+/*   lst_to_tetri.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpiniau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/27 12:49:07 by jpiniau           #+#    #+#             */
-/*   Updated: 2016/11/05 16:38:14 by jpiniau          ###   ########.fr       */
+/*   Created: 2016/11/05 17:28:41 by jpiniau           #+#    #+#             */
+/*   Updated: 2016/11/05 17:56:35 by jpiniau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TETRI_H
-# define TETRI_H
-
+#include "tetri.h"
 #include "libft.h"
 
-typedef struct	s_tetri
+t_tetri	*lst_to_tetri(t_list *lst)
 {
-	char 		**tetri;
-	int			x;
-	int			y;
-}				t_tetri;
+	t_tetri	*tetri;
+	int		size_lst;
+	int		i;
 
-
-void	free_tetri(char **tetri);
-t_list	*get_all_tetri(char *path);
-char	**get_tetri(int fd);
-int		test_tetri(char ***tetri);
-char	**go_topleft(char **tetri);
-char	**replace(char **tetri);
-void	free_lst_tetri(void *content, size_t size);
-void	get_solution(t_list *tetri);
-void	print_tetri(char **tetri);
-
-#endif
+	size_lst = ft_lstlen(lst);
+	if(!(tetri = (t_tetri *)malloc(sizeof(t_tetri) * size_lst)))
+		return (NULL);
+	i = -1;
+	while (lst != NULL && ++i < size_lst)
+	{
+		tetri[i] = ft_memcpy(tetri[i], lst->content, sizeof(t_tetri));
+		lst = lst->next;
+	}
+	return (tetri);
+}

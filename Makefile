@@ -6,7 +6,7 @@
 #    By: jpiniau <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/09 15:51:57 by jpiniau           #+#    #+#              #
-#    Updated: 2016/11/05 14:28:53 by jpiniau          ###   ########.fr        #
+#    Updated: 2016/11/05 16:38:26 by jpiniau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = fillit
@@ -23,7 +23,7 @@ SRC_NAME =	main.c\
 			test_tetri.c\
 			go_topleft.c\
 			replace.c\
-			put_rep.c\
+			get_solution.c\
 			print_tetri.c
 
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
