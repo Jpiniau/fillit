@@ -6,7 +6,7 @@
 /*   By: jpiniau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 12:49:07 by jpiniau           #+#    #+#             */
-/*   Updated: 2016/11/05 12:34:30 by mdeken           ###   ########.fr       */
+/*   Updated: 2016/11/05 14:28:43 by jpiniau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,21 @@
 
 #include "libft.h"
 
+typedef struct	s_tetri
+{
+	char 		**tetri;
+	int			x;
+	int			y;
+}				t_tetri;
+
 void	free_tetri(char **tetri);
 t_list	*get_all_tetri(char *path);
 char	**get_tetri(int fd);
 int		test_tetri(char ***tetri);
 char	**go_topleft(char **tetri);
+char	**replace(char **tetri);
+void	free_lst_tetri(void *content, size_t size);
+void	put_rep(t_list *tetri);
 void	print_tetri(char **tetri);
 
 #endif
