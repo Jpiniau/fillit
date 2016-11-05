@@ -6,7 +6,7 @@
 /*   By: mdeken <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/31 17:38:23 by mdeken            #+#    #+#             */
-/*   Updated: 2016/11/05 12:35:32 by mdeken           ###   ########.fr       */
+/*   Updated: 2016/11/05 15:57:53 by mdeken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,13 +113,13 @@ char	*test_get_tetri()
 	close(fd);
 	mu_assert("get_tetri : failed tetri6", test_value((char **)test_tetri, returned_tetri));
 
-	fd = open("map/tetri7", O_RDONLY);
+	fd = open("map/error9", O_RDONLY);
 	mu_assert("wrong fd", fd > 0);
 	returned_tetri = get_tetri(fd);
 	close(fd);
-	mu_assert("get_tetri : failed tetri7", returned_tetri == NULL);
+	mu_assert("get_tetri : failed error9", returned_tetri == NULL);
 
-	fd = open("map/tetri8", O_RDONLY);
+	fd = open("map/error10", O_RDONLY);
 	mu_assert("wrong fd", fd > 0);
 	returned_tetri = get_tetri(fd);
 	test_tetri[0] = strdup("....");
@@ -127,9 +127,9 @@ char	*test_get_tetri()
 	test_tetri[2] = strdup("....");
 	test_tetri[3] = strdup("....");
 	close(fd);
-	mu_assert("get_tetri : failed tetri8", test_value((char **)test_tetri, returned_tetri));
+	mu_assert("get_tetri : failed error10", test_value((char **)test_tetri, returned_tetri));
 	
-	fd = open("map/tetri9", O_RDONLY);
+	fd = open("map/error11", O_RDONLY);
 	mu_assert("wrong fd", fd > 0);
 	returned_tetri = get_tetri(fd);
 	test_tetri[0] = strdup("####");
@@ -137,9 +137,9 @@ char	*test_get_tetri()
 	test_tetri[2] = strdup("####");
 	test_tetri[3] = strdup("####");
 	close(fd);
-	mu_assert("get_tetri : failed tetri9", test_value((char **)test_tetri, returned_tetri));
+	mu_assert("get_tetri : failed error11", test_value((char **)test_tetri, returned_tetri));
 
-	fd = open("map/tetri10", O_RDONLY);
+	fd = open("map/error1", O_RDONLY);
 	mu_assert("wrong fd", fd > 0);
 	returned_tetri = get_tetri(fd);
 	test_tetri[0] = strdup(",,,,");
@@ -147,9 +147,9 @@ char	*test_get_tetri()
 	test_tetri[2] = strdup("#,,,");
 	test_tetri[3] = strdup("##,,");
 	close(fd);
-	mu_assert("get_tetri : failed tetri10", test_value((char **)test_tetri, returned_tetri));
+	mu_assert("get_tetri : failed error1", test_value((char **)test_tetri, returned_tetri));
 
-	fd = open("map/tetri11", O_RDONLY);
+	fd = open("map/error2", O_RDONLY);
 	mu_assert("wrong fd", fd > 0);
 	returned_tetri = get_tetri(fd);
 	test_tetri[0] = strdup("8...");
@@ -157,9 +157,9 @@ char	*test_get_tetri()
 	test_tetri[2] = strdup("8...");
 	test_tetri[3] = strdup("8...");
 	close(fd);
-	mu_assert("get_tetri : failed tetri11", test_value((char **)test_tetri, returned_tetri));
+	mu_assert("get_tetri : failed error2", test_value((char **)test_tetri, returned_tetri));
 
-	fd = open("map/tetri12", O_RDONLY);
+	fd = open("map/error3", O_RDONLY);
 	mu_assert("wrong fd", fd > 0);
 	returned_tetri = get_tetri(fd);
 	test_tetri[0] = strdup("#..#");
@@ -167,27 +167,27 @@ char	*test_get_tetri()
 	test_tetri[2] = strdup("....");
 	test_tetri[3] = strdup("#..#");
 	close(fd);
-	mu_assert("get_tetri : failed tetri12", test_value((char **)test_tetri, returned_tetri));
+	mu_assert("get_tetri : failed error3", test_value((char **)test_tetri, returned_tetri));
 
-	fd = open("map/tetri13", O_RDONLY);
+	fd = open("map/error4", O_RDONLY);
 	mu_assert("wrong fd", fd > 0);
 	returned_tetri = get_tetri(fd);
 	close(fd);
-	mu_assert("get_tetri : failed tetri13", returned_tetri == NULL);
+	mu_assert("get_tetri : failed error4", returned_tetri == NULL);
 
-	fd = open("map/tetri14", O_RDONLY);
+	fd = open("map/error5", O_RDONLY);
 	mu_assert("wrong fd", fd > 0);
 	returned_tetri = get_tetri(fd);
 	close(fd);
-	mu_assert("get_tetri : failed tetri14", returned_tetri == NULL);
+	mu_assert("get_tetri : failed error5", returned_tetri == NULL);
 
-	fd = open("map/tetri15", O_RDONLY);
+	fd = open("map/error6", O_RDONLY);
 	mu_assert("wrong fd", fd > 0);
 	returned_tetri = get_tetri(fd);
 	close(fd);
-	mu_assert("get_tetri : failed tetri15", returned_tetri == NULL);
+	mu_assert("get_tetri : failed error6", returned_tetri == NULL);
 
-	fd = open("map/tetri16", O_RDONLY);
+	fd = open("map/error7", O_RDONLY);
 	mu_assert("wrong fd", fd > 0);
 	returned_tetri = get_tetri(fd);
 	test_tetri[0] = strdup("##..");
@@ -195,12 +195,32 @@ char	*test_get_tetri()
 	test_tetri[2] = strdup("....");
 	test_tetri[3] = strdup("....");
 	close(fd);
-	mu_assert("get_tetri : failed tetri16", test_value((char **)test_tetri, returned_tetri));
+	mu_assert("get_tetri : failed error7", test_value((char **)test_tetri, returned_tetri));
 	
-	fd = open("map/tetri17", O_RDONLY);
+	fd = open("map/error8", O_RDONLY);
 	mu_assert("wrong fd", fd > 0);
 	returned_tetri = get_tetri(fd);
 	close(fd);
-	mu_assert("get_tetri : failed tetri17", returned_tetri == NULL);
+	mu_assert("get_tetri : failed error8", returned_tetri == NULL);
+
+	fd = open("map/tetri7", O_RDONLY);
+	mu_assert("wrong fd", fd > 0);
+	returned_tetri = get_tetri(fd);
+	test_tetri[0] = strdup("....");
+	test_tetri[1] = strdup("....");
+	test_tetri[2] = strdup("..##");
+	test_tetri[3] = strdup(".##.");
+	close(fd);
+	mu_assert("get_tetri : failed error7", test_value((char **)test_tetri, returned_tetri));
+
+	fd = open("map/error12", O_RDONLY);
+	mu_assert("wrong fd", fd > 0);
+	returned_tetri = get_tetri(fd);
+	test_tetri[0] = strdup("....");
+	test_tetri[1] = strdup("..##");
+	test_tetri[2] = strdup("..#.");
+	test_tetri[3] = strdup("....");
+	close(fd);
+	mu_assert("get_tetri : failed error7", test_value((char **)test_tetri, returned_tetri));
 	return (0);
 }

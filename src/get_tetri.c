@@ -6,7 +6,7 @@
 /*   By: jpiniau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 16:35:31 by jpiniau           #+#    #+#             */
-/*   Updated: 2016/11/03 18:39:13 by jpiniau          ###   ########.fr       */
+/*   Updated: 2016/11/05 14:51:36 by mdeken           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ char		**get_tetri(int fd)
 	int		index;
 	char	line[5];
 	char	**tmp;
-	static int i = 0;
 
 	index = 0;
 	tmp = NULL;
@@ -56,8 +55,5 @@ char		**get_tetri(int fd)
 		free_tmp(index, tmp);
 		return (NULL);
 	}
-	ft_putendl("CC");
-	while(i == 2);
-	i++;
 	return (tmp);
 }

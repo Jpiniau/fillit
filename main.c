@@ -6,7 +6,7 @@ int tests_run;
 
 static	void	all_tests()
 {
-//	mu_run_test(test_get_tetri);
+	mu_run_test(test_get_tetri);
 	mu_run_test(test_get_all_tetri);
 }
 

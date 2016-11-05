@@ -6,7 +6,7 @@
 #    By: mdeken <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/04 10:02:25 by mdeken            #+#    #+#              #
-#    Updated: 2016/11/03 18:39:20 by mdeken           ###   ########.fr        #
+#    Updated: 2016/11/05 16:03:19 by mdeken           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,8 +60,7 @@ $(NAME) : $(OBJ)
 	@$(CC) $(FLAGS) -o $(NAME) obj/* $(LIBFT)	
 	@echo "\n\033[36m"$(NAME)":\033[34;1m Done !\033[0m"
 
-$(OBJ_REP)/%.o : %.c
-	echo $@
+$(OBJ_REP)/%.o : %.c tests/src src/
 	@mkdir $(OBJ_REP) 2> /dev/null || true
 	@$(CC) $(FLAGS) $(INCLUDE) -o $@ -c $<
 	@printf '\033[32m.\033[0m'
