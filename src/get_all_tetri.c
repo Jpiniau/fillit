@@ -6,7 +6,7 @@
 /*   By: mdeken <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/31 14:02:52 by mdeken            #+#    #+#             */
-/*   Updated: 2016/11/05 12:59:31 by mdeken           ###   ########.fr       */
+/*   Updated: 2016/11/05 14:29:22 by jpiniau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,20 @@ static t_list	*create_tetri(int fd)
 {
 	t_list	*new_tetri;
 	char	**tetri;
+	t_tetri new;
 
 	new_tetri = NULL;
 	tetri = get_tetri(fd);
 	if (tetri != NULL && test_tetri(&tetri) == 1)
 	{
-		new_tetri = ft_lstnew(NULL, 0);
-		new_tetri->content = tetri;
-		new_tetri->content_size = sizeof(char *) * 4;
+	//	if (!(new = (t_tetri *)malloc(sizeof(t_tetri))))
+	//		return (NULL);
+		new.tetri = tetri;
+		new.x = 0;
+		new.y = 0;
+		new_tetri = ft_lstnew(&new, sizeof(t_tetri));
 	}
 	return (new_tetri);
-}
-
-static void	del_lst(void *content, size_t size)
-{
-	char	**tetri;
-
-	tetri = (char **)content;
-	free_tetri(tetri);
-	size = 0;
 }
 
 t_list	*get_all_tetri(char *path)
@@ -69,7 +64,7 @@ t_list	*get_all_tetri(char *path)
 	close(fd);
 	if (ok == -1)
 	{
-		ft_lstdel(&all_tetri, del_lst);
+		ft_lstdel(&all_tetri, free_lst_tetri);
 		ft_putendl("error2");
 		exit(-1);
 	}
