@@ -6,7 +6,7 @@
 /*   By: jpiniau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 12:09:10 by jpiniau           #+#    #+#             */
-/*   Updated: 2016/11/05 15:46:05 by jpiniau          ###   ########.fr       */
+/*   Updated: 2016/11/05 13:09:09 by jpiniau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,45 +20,50 @@
 
 void	lst_print(t_list *elem)
 {
-	t_tetri	*tetri;
+	char	**tetri;
 	int		i;
 	int		j;
 
-	tetri = (t_tetri *)elem->content;
-	i = -1;
-	while (++i < 4)
+	tetri = (char **)elem->content;
+	i = 0;
+	while (i < 4)
 	{
-		j = -1;
-		while (++j < 4)
-			ft_putchar(tetri->tetri[i][j]);
+		j = 0;
+		while (j < 4)
+		{
+			ft_putchar(tetri[i][j]);
+			j++;
+		}
 		ft_putchar('\n');
+		i++;
 	}
 	ft_putchar('\n');
 }
 
 void	free_lst(void *content, size_t i)
 {
-	t_tetri	*tetri;
+	char	**tetri;
 
 	(void)i;
-	tetri = (t_tetri *)content;
-	free_tetri(tetri->tetri);
-	free(tetri);
+	tetri = (char **)content;
+	free_tetri(tetri);
 	tetri = NULL;
 }
 
 int		main(int ac, char **av)
 {
+	int		i;
 	t_list	*tetri;
 
 	(void)ac;
 	(void)av;
+	i = -1;
 	ft_putstr("TEST\n");
 	tetri = get_all_tetri(av[1]);
 	ft_lstiter(tetri, lst_print);
+	ft_lstdel(&tetri, free_lst_tetri);
 	ft_putstr("Retrun\n");
 	put_rep(tetri);
-	ft_lstdel(&tetri, free_lst_tetri);
 	while(1);
 	return (0);
 }

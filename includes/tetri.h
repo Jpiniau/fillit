@@ -6,7 +6,7 @@
 /*   By: jpiniau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/27 12:49:07 by jpiniau           #+#    #+#             */
-/*   Updated: 2016/11/05 14:28:43 by jpiniau          ###   ########.fr       */
+/*   Updated: 2016/11/05 15:45:57 by jpiniau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct	s_tetri
 	int			x;
 	int			y;
 }				t_tetri;
+
 
 void	free_tetri(char **tetri);
 t_list	*get_all_tetri(char *path);
